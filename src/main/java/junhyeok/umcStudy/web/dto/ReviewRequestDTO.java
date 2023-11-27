@@ -4,15 +4,12 @@ import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
 
-public class StoreRequestDTO {
+public class ReviewRequestDTO {
     @Getter
-    public static class Create{
+    public static class Write{
         @NotNull
-        String name;
+        String body;
         @NotNull
-        String address;
-        @NotNull
-        Long regionId;
+        Float score;
     }
-
 }
