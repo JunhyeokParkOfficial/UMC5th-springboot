@@ -3,7 +3,7 @@ package junhyeok.umcStudy.web.controller;
 import junhyeok.umcStudy.apiPayload.ApiResponse;
 import junhyeok.umcStudy.converter.ReviewConverter;
 import junhyeok.umcStudy.domain.Review;
-import junhyeok.umcStudy.service.ReviewService;
+import junhyeok.umcStudy.service.ReviewCommandService;
 import junhyeok.umcStudy.validation.annotation.ExistMember;
 import junhyeok.umcStudy.validation.annotation.ExistStore;
 import junhyeok.umcStudy.web.dto.ReviewRequestDTO;
@@ -18,7 +18,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 @Validated
 public class ReviewController {
-    private final ReviewService reviewService;
+    private final ReviewCommandService reviewService;
 
     @PostMapping("/create/{storeId}")
     public ApiResponse<ReviewResponseDTO.WriteResult> writeReview(@ExistStore @PathVariable(name = "storeId") Long storeId,
