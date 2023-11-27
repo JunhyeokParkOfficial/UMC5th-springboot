@@ -25,4 +25,12 @@ public class MemberMission extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(length = 15)
     private MissionStatus status;
+
+    public void setMember(Member member){
+        this.member = member;
+    }
+
+    public void setMission(Mission mission){
+        this.mission = mission;
+    }
 }

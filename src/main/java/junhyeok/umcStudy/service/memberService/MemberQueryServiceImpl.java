@@ -1,4 +1,4 @@
-package junhyeok.umcStudy.service;
+package junhyeok.umcStudy.service.memberService;
 
 import junhyeok.umcStudy.domain.Member;
 import junhyeok.umcStudy.respository.MemberRepository;

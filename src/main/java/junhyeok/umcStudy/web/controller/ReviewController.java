@@ -3,7 +3,7 @@ package junhyeok.umcStudy.web.controller;
 import junhyeok.umcStudy.apiPayload.ApiResponse;
 import junhyeok.umcStudy.converter.ReviewConverter;
 import junhyeok.umcStudy.domain.Review;
-import junhyeok.umcStudy.service.ReviewCommandService;
+import junhyeok.umcStudy.service.reviewService.ReviewCommandService;
 import junhyeok.umcStudy.validation.annotation.ExistMember;
 import junhyeok.umcStudy.validation.annotation.ExistStore;
 import junhyeok.umcStudy.web.dto.ReviewRequestDTO;
