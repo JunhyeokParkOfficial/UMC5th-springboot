@@ -3,7 +3,7 @@ package junhyeok.umcStudy.web.controller;
 import junhyeok.umcStudy.apiPayload.ApiResponse;
 import junhyeok.umcStudy.converter.StoreConverter;
 import junhyeok.umcStudy.domain.Store;
-import junhyeok.umcStudy.service.StoreCommandService;
+import junhyeok.umcStudy.service.storeService.StoreCommandService;
 import junhyeok.umcStudy.web.dto.StoreRequestDTO;
 import junhyeok.umcStudy.web.dto.StoreResponseDTO;
 import lombok.RequiredArgsConstructor;

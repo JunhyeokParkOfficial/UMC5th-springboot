@@ -1,8 +1,10 @@
-package junhyeok.umcStudy.service;
+package junhyeok.umcStudy.service.reviewService;
 
 import junhyeok.umcStudy.converter.ReviewConverter;
 import junhyeok.umcStudy.domain.Review;
 import junhyeok.umcStudy.respository.ReviewRepository;
+import junhyeok.umcStudy.service.memberService.MemberQueryService;
+import junhyeok.umcStudy.service.storeService.StoreQueryService;
 import junhyeok.umcStudy.web.dto.ReviewRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

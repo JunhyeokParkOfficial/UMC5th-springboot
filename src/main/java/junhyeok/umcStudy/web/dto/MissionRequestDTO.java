@@ -17,4 +17,12 @@ public class MissionRequestDTO {
         @NotNull
         Long storeId;
     }
+
+    @Getter
+    public static class Start{
+        @NotNull
+        Long missionId;
+        @NotNull
+        Long memberId;
+    }
 }

@@ -3,7 +3,7 @@ package junhyeok.umcStudy.web.controller;
 import junhyeok.umcStudy.apiPayload.ApiResponse;
 import junhyeok.umcStudy.converter.MemberConverter;
 import junhyeok.umcStudy.domain.Member;
-import junhyeok.umcStudy.service.MemberCommandService;
+import junhyeok.umcStudy.service.memberService.MemberCommandService;
 import junhyeok.umcStudy.web.dto.MemberRequestDTO;
 import junhyeok.umcStudy.web.dto.MemberResponseDTO;
 import lombok.RequiredArgsConstructor;

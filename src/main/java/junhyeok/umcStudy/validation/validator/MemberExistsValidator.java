@@ -2,7 +2,7 @@ package junhyeok.umcStudy.validation.validator;
 
 import junhyeok.umcStudy.apiPayload.code.status.ErrorStatus;
 import junhyeok.umcStudy.domain.Member;
-import junhyeok.umcStudy.service.MemberQueryService;
+import junhyeok.umcStudy.service.memberService.MemberQueryService;
 import junhyeok.umcStudy.validation.annotation.ExistMember;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

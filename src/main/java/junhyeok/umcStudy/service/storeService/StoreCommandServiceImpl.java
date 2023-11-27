@@ -1,9 +1,10 @@
-package junhyeok.umcStudy.service;
+package junhyeok.umcStudy.service.storeService;
 
 import junhyeok.umcStudy.converter.StoreConverter;
 import junhyeok.umcStudy.domain.Region;
 import junhyeok.umcStudy.domain.Store;
 import junhyeok.umcStudy.respository.StoreRepository;
+import junhyeok.umcStudy.service.regionService.RegionQueryService;
 import junhyeok.umcStudy.web.dto.StoreRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

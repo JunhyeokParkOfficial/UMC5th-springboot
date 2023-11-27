@@ -1,4 +1,4 @@
-package junhyeok.umcStudy.service;
+package junhyeok.umcStudy.service.regionService;
 
 import junhyeok.umcStudy.domain.Region;
 import junhyeok.umcStudy.respository.RegionRepository;

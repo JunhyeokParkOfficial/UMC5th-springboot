@@ -1,4 +1,4 @@
-package junhyeok.umcStudy.service;
+package junhyeok.umcStudy.service.reviewService;
 
 import junhyeok.umcStudy.domain.Review;
 import junhyeok.umcStudy.web.dto.ReviewRequestDTO;

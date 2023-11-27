@@ -11,4 +11,10 @@ public class MissionResponseDTO {
         Long missionId;
         LocalDateTime createdAt;
     }
+
+    @Builder @Getter
+    public static class StartResult{
+        Long memberMissionId;
+        LocalDateTime createdAt;
+    }
 }
