@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController @RequestMapping("/stores")
 @RequiredArgsConstructor
 public class StoreController {
     private final StoreCommandService storeCommandService;
 
     @PostMapping("/create")
-    public ApiResponse<StoreResponseDTO.CreateResult> createStore(@RequestBody StoreRequestDTO.Create request){
+    public ApiResponse<StoreResponseDTO.CreateResult> createStore(@Valid @RequestBody StoreRequestDTO.Create request){
         Store store = storeCommandService.createStore(request);
         return ApiResponse.onSuccess(StoreConverter.toCreateResult(store));
     }
