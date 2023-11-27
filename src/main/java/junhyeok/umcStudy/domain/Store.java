@@ -1,12 +1,13 @@
 package junhyeok.umcStudy.domain;
 
 import junhyeok.umcStudy.domain.common.BaseEntity;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity @Builder @Getter @NoArgsConstructor(access = AccessLevel.PROTECTED) @AllArgsConstructor
 public class Store extends BaseEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
