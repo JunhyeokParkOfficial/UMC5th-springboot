@@ -15,6 +15,7 @@ public enum ErrorStatus implements BaseErrorCode {
     _BAD_REQUEST(HttpStatus.BAD_REQUEST,"COMMON400","잘못된 요청입니다."),
     _UNAUTHORIZED(HttpStatus.UNAUTHORIZED,"COMMON401","인증이 필요합니다."),
     _FORBIDDEN(HttpStatus.FORBIDDEN, "COMMON403", "금지된 요청입니다."),
+    PAGE_LT_ONE(HttpStatus.BAD_REQUEST,"COMMON405","잘못된 페이지입니다."),
 
     STORE_NOT_FOUND(HttpStatus.NOT_FOUND, "STORE_4001","가게가 없습니다."),
 

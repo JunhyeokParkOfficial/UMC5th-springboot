@@ -11,6 +11,7 @@ import junhyeok.umcStudy.converter.ReviewConverter;
 import junhyeok.umcStudy.domain.Review;
 import junhyeok.umcStudy.service.reviewService.ReviewCommandService;
 import junhyeok.umcStudy.service.reviewService.ReviewQueryService;
+import junhyeok.umcStudy.validation.annotation.CheckPage;
 import junhyeok.umcStudy.validation.annotation.ExistMember;
 import junhyeok.umcStudy.validation.annotation.ExistStore;
 import junhyeok.umcStudy.web.dto.ReviewRequestDTO;
@@ -52,5 +53,13 @@ public class ReviewController {
         Page<Review> reviewList = reviewQueryService.getReviewList(storeId,page);
         ReviewResponseDTO.ReviewPreViewListDTO res = ReviewConverter.toReviewPreViewListDTO(reviewList);
         return ApiResponse.onSuccess(res);
+    }
+
+    @GetMapping("member/{memberId}")
+    public ApiResponse<ReviewResponseDTO.ReviewPreViewListDTO> getMyReviewList(
+            @ExistMember @PathVariable(name="memberId") Long memberId,
+            @CheckPage @RequestParam(name = "page") Integer page){
+        Page<Review> reviewList = reviewQueryService.getMyReviewList(memberId, page-1);
+        return ApiResponse.onSuccess(ReviewConverter.toReviewPreViewListDTO(reviewList));
     }
 }
