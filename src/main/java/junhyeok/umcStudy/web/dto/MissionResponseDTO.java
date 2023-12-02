@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class MissionResponseDTO {
     @Builder @Getter
@@ -16,5 +17,23 @@ public class MissionResponseDTO {
     public static class StartResult{
         Long memberMissionId;
         LocalDateTime createdAt;
+    }
+
+    @Builder @Getter
+    public static class MissionList{
+        List<Detail> list;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
+    }
+
+    @Builder @Getter
+    public static class Detail{
+        Long id;
+        Integer reward;
+        String storeName;
+        String missionSpec;
     }
 }
