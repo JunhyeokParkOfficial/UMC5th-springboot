@@ -22,4 +22,11 @@ public class ReviewQueryServiceImpl implements ReviewQueryService {
         Page<Review> StorePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
         return StorePage;
     }
+
+    @Override
+    public Page<Review> getMyReviewList(Long memberId, Integer page) {
+        return reviewRepository.findAllByMember_Id(memberId, PageRequest.of(page,10));
+    }
+
+
 }
