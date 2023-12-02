@@ -3,6 +3,10 @@ package junhyeok.umcStudy.converter;
 import junhyeok.umcStudy.domain.Mission;
 import junhyeok.umcStudy.web.dto.MissionRequestDTO;
 import junhyeok.umcStudy.web.dto.MissionResponseDTO;
+import org.springframework.data.domain.Page;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MissionConverter {
     public static Mission toMission(MissionRequestDTO.Create dto){
@@ -17,6 +21,28 @@ public class MissionConverter {
         return MissionResponseDTO.CreateResult.builder()
                 .missionId(entity.getId())
                 .createdAt(entity.getCreatedAt())
+                .build();
+    }
+
+    public static MissionResponseDTO.MissionList toList(Page<Mission> entities) {
+        List<MissionResponseDTO.Detail> list = entities.stream().map(MissionConverter::toDetail).collect(Collectors.toList());
+
+        return MissionResponseDTO.MissionList.builder()
+                .list(list)
+                .totalPage(entities.getTotalPages())
+                .listSize(entities.getSize())
+                .totalElements(entities.getTotalElements())
+                .isFirst(entities.isFirst())
+                .isLast(entities.isLast())
+                .build();
+    }
+
+    public static MissionResponseDTO.Detail toDetail(Mission entity){
+        return MissionResponseDTO.Detail.builder()
+                .id(entity.getId())
+                .storeName(entity.getStore().getName())
+                .missionSpec(entity.getMissionSpec())
+                .reward(entity.getReward())
                 .build();
     }
 }
