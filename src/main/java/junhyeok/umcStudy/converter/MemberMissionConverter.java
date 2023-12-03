@@ -10,4 +10,12 @@ public class MemberMissionConverter {
                 .createdAt(entity.getCreatedAt())
                 .build();
     }
+
+    public static MissionResponseDTO.Complete toComplete(MemberMission entity){
+        return MissionResponseDTO.Complete.builder()
+                .id(entity.getId())
+                .updatedAt(entity.getUpdatedAt())
+                .status(entity.getStatus())
+                .build();
+    }
 }

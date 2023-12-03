@@ -1,6 +1,7 @@
 package junhyeok.umcStudy.service.missionService;
 
 import junhyeok.umcStudy.converter.MissionConverter;
+import junhyeok.umcStudy.domain.Member;
 import junhyeok.umcStudy.domain.Mission;
 import junhyeok.umcStudy.domain.enums.MissionStatus;
 import junhyeok.umcStudy.domain.mapping.MemberMission;
@@ -35,5 +36,15 @@ public class MissionCommandServiceImpl implements MissionCommandService {
         mm.setMission(missionRepository.findById(missionId).get());
 
         return memberMissionRepository.save(mm);
+    }
+
+    @Override
+    public MemberMission completeMission(MissionRequestDTO.Complete request) {
+        Member member = memberQueryService.findById(request.getMemberId()).get();
+        Mission mission = missionRepository.findById(request.getMissionId()).get();
+        MemberMission mm = memberMissionRepository.findMemberMissionByMemberAndMission(member,mission).get(0);
+        mm.completeMission();
+
+        return mm;
     }
 }

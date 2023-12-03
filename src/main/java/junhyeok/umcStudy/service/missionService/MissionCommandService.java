@@ -8,4 +8,6 @@ public interface MissionCommandService {
     Mission createMission(MissionRequestDTO.Create request);
 
     MemberMission startMission(MissionRequestDTO.Start request);
+
+     MemberMission completeMission(MissionRequestDTO.Complete request);
 }

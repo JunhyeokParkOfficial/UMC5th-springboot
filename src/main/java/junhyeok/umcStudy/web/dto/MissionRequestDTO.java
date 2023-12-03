@@ -25,4 +25,12 @@ public class MissionRequestDTO {
         @NotNull
         Long memberId;
     }
+
+    @Getter
+    public static class Complete{
+        @NotNull
+        Long memberId;
+        @NotNull
+        Long missionId;
+    }
 }
