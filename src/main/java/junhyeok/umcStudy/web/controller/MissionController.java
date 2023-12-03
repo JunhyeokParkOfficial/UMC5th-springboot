@@ -56,4 +56,11 @@ public class MissionController {
 
         return ApiResponse.onSuccess(res);
     }
+
+    @PostMapping("/complete")
+    public ApiResponse<MissionResponseDTO.Complete> completeMission(@RequestBody MissionRequestDTO.Complete req){
+        MemberMission mm = missionCommandService.completeMission(req);
+        MissionResponseDTO.Complete res = MemberMissionConverter.toComplete(mm);
+        return ApiResponse.onSuccess(res);
+    }
 }

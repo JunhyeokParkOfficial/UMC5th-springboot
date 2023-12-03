@@ -1,5 +1,6 @@
 package junhyeok.umcStudy.web.dto;
 
+import junhyeok.umcStudy.domain.enums.MissionStatus;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -35,5 +36,12 @@ public class MissionResponseDTO {
         Integer reward;
         String storeName;
         String missionSpec;
+    }
+
+    @Builder @Getter
+    public static class Complete{
+        Long id;
+        MissionStatus status;
+        LocalDateTime updatedAt;
     }
 }
