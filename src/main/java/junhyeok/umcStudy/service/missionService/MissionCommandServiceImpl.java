@@ -4,7 +4,7 @@ import junhyeok.umcStudy.converter.MissionConverter;
 import junhyeok.umcStudy.domain.Mission;
 import junhyeok.umcStudy.domain.enums.MissionStatus;
 import junhyeok.umcStudy.domain.mapping.MemberMission;
-import junhyeok.umcStudy.respository.MemberMissionRespository;
+import junhyeok.umcStudy.respository.MemberMissionRepository;
 import junhyeok.umcStudy.respository.MissionRepository;
 import junhyeok.umcStudy.service.storeService.StoreQueryService;
 import junhyeok.umcStudy.service.memberService.MemberQueryService;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service @Transactional @RequiredArgsConstructor
 public class MissionCommandServiceImpl implements MissionCommandService {
     private final MissionRepository missionRepository;
-    private final MemberMissionRespository memberMissionRespository;
+    private final MemberMissionRepository memberMissionRepository;
     private final StoreQueryService storeQueryService;
     private final MemberQueryService memberQueryService;
     public Mission createMission(MissionRequestDTO.Create request) {
@@ -34,6 +34,6 @@ public class MissionCommandServiceImpl implements MissionCommandService {
         mm.setMember(memberQueryService.findById(memberId).get());
         mm.setMission(missionRepository.findById(missionId).get());
 
-        return memberMissionRespository.save(mm);
+        return memberMissionRepository.save(mm);
     }
 }

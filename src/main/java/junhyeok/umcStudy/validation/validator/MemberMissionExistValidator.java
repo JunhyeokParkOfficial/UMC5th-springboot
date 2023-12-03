@@ -4,7 +4,7 @@ import junhyeok.umcStudy.apiPayload.code.status.ErrorStatus;
 import junhyeok.umcStudy.domain.Member;
 import junhyeok.umcStudy.domain.Mission;
 import junhyeok.umcStudy.domain.mapping.MemberMission;
-import junhyeok.umcStudy.respository.MemberMissionRespository;
+import junhyeok.umcStudy.respository.MemberMissionRepository;
 import junhyeok.umcStudy.respository.MemberRepository;
 import junhyeok.umcStudy.respository.MissionRepository;
 import junhyeok.umcStudy.validation.annotation.ExistMemberMission;
@@ -19,7 +19,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class MemberMissionExistValidator implements ConstraintValidator<ExistMemberMission, MissionRequestDTO.Start> {
-    private final MemberMissionRespository memberMissionRespository;
+    private final MemberMissionRepository memberMissionRepository;
     private final MemberRepository memberRepository;
     private final MissionRepository missionRepository;
     @Override
@@ -31,7 +31,7 @@ public class MemberMissionExistValidator implements ConstraintValidator<ExistMem
     public boolean isValid(MissionRequestDTO.Start value, ConstraintValidatorContext context) {
         Member member = memberRepository.findById(value.getMemberId()).get();
         Mission mission = missionRepository.findById(value.getMissionId()).get();
-        List<MemberMission> mm = memberMissionRespository
+        List<MemberMission> mm = memberMissionRepository
                 .findMemberMissionByMemberAndMission(member,mission);
         if(mm.size()!=0){
             context.disableDefaultConstraintViolation();

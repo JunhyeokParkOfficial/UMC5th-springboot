@@ -17,7 +17,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController @RequestMapping("mission")
 @RequiredArgsConstructor
@@ -44,6 +43,17 @@ public class MissionController {
             @CheckPage @RequestParam(name = "page") Integer page){
         Page<Mission> missionList = missionQueryService.getMissionByStore(storeId, page-1);
         MissionResponseDTO.MissionList res = MissionConverter.toList(missionList);
+        return ApiResponse.onSuccess(res);
+    }
+
+    @GetMapping("/member/{memberId}")
+    public ApiResponse<MissionResponseDTO.MissionList> getMissionByMember(
+            @PathVariable(name = "memberId") Long memberId,
+            @CheckPage @RequestParam(name = "page") Integer page
+    ){
+        Page<MemberMission> missionList = missionQueryService.getMissionByMember(memberId, page-1);
+        MissionResponseDTO.MissionList res = MissionConverter.memberMissionToList(missionList);
+
         return ApiResponse.onSuccess(res);
     }
 }
